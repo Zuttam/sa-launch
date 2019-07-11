@@ -18,8 +18,9 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var AWS = require('aws-sdk');
-var ddb = new AWS.DynamoDB()'
-'
+AWS.config.update({region: 'us-east-1'});
+var ddb = new AWS.DynamoDB.DocumentClient();
+
 
 // declare a new express app
 var app = express()
@@ -48,14 +49,16 @@ app.get('/customers/*', async function(req, res) {
   try {
     var params = {
       TableName: 'customers-master',
-      Key: {
-        'id': {S: '001'}
+      IndexName: "customerName",
+      KeyConditionExpression: "customerName = :name",
+      ExpressionAttributeValues: {
+          ":name": req.params['0'].toString()
       }
     };
     
-    await data = ddb.getItem(params);
+    const data = await ddb.query(params).promise();
     // Add your code here
-    res.json({success: 'get call succeed! yay!!!', url: req.url, body: req.body, data: data});
+    res.json(data);
   }
   catch (err) { 
     console.log("Error", err);
@@ -95,8 +98,7 @@ app.put('/customers/*', function(req, res) {
 
 /****************************
 * Example delete method *
-****************************/
-
+****************************/ 
 app.delete('/customers', function(req, res) {
   // Add your code here
   res.json({success: 'delete call succeed!', url: req.url});

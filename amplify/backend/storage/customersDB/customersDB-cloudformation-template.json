@@ -50,7 +50,7 @@
                   }  , 
                   
                   {
-                      "AttributeName": "name",
+                      "AttributeName": "customerName",
                       "AttributeType": "S"
                   } 
                   
@@ -102,17 +102,12 @@
                 ,"GlobalSecondaryIndexes": [
                   
                     {
-                        "IndexName": "name",
+                        "IndexName": "customerName",
                         "KeySchema": [
                             
                             {
-                                "AttributeName": "name",
+                                "AttributeName": "customerName",
                                 "KeyType": "HASH"
-                            }  , 
-                            
-                            {
-                                "AttributeName": "datetime",
-                                "KeyType": "RANGE"
                             } 
                             
                         ],
