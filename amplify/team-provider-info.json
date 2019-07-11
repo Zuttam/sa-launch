@@ -1,0 +1,19 @@
+{
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "rocking-deep-lambda-master-20190710161553-authRole",
+            "UnauthRoleArn": "arn:aws:iam::301715299877:role/rocking-deep-lambda-master-20190710161553-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::301715299877:role/rocking-deep-lambda-master-20190710161553-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "rocking-deep-lambda-master-20190710161553-deployment",
+            "UnauthRoleName": "rocking-deep-lambda-master-20190710161553-unauthRole",
+            "StackName": "rocking-deep-lambda-master-20190710161553",
+            "StackId": "arn:aws:cloudformation:us-east-1:301715299877:stack/rocking-deep-lambda-master-20190710161553/fdb341b0-a32d-11e9-991c-0e23fbf2c85e"
+        },
+        "categories": {
+            "auth": {
+                "rockingdeeplambdae33d1fb7": {}
+            }
+        }
+    }
+}
