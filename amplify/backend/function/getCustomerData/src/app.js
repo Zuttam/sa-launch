@@ -17,6 +17,9 @@ Amplify Params - DO NOT EDIT */
 var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+var AWS = require('aws-sdk');
+var ddb = new AWS.DynamoDB()'
+'
 
 // declare a new express app
 var app = express()
@@ -31,6 +34,7 @@ app.use(function(req, res, next) {
 });
 
 
+
 /**********************
  * Example get method *
  **********************/
@@ -40,10 +44,25 @@ app.get('/customers', function(req, res) {
   res.json({success: 'get call succeed!', url: req.url});
 });
 
-app.get('/customers/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
+app.get('/customers/*', async function(req, res) {
+  try {
+    var params = {
+      TableName: 'customers-master',
+      Key: {
+        'id': {S: '001'}
+      }
+    };
+    
+    await data = ddb.getItem(params);
+    // Add your code here
+    res.json({success: 'get call succeed! yay!!!', url: req.url, body: req.body, data: data});
+  }
+  catch (err) { 
+    console.log("Error", err);
+  }
 });
+
+
 
 /****************************
 * Example post method *
@@ -55,6 +74,7 @@ app.post('/customers', function(req, res) {
 });
 
 app.post('/customers/*', function(req, res) {
+  
   // Add your code here
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });

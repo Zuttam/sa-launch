@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "rocking-deep-lambda-master-20190710161553-deployment",
-					"S3Key": "amplify-builds/getCustomerData-5139766d744d4a2f7267-build.zip"
+					"S3Key": "amplify-builds/getCustomerData-346a6d6b63716c44754e-build.zip"
 				}
 			}
 		},

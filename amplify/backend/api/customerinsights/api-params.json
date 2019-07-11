@@ -4,13 +4,7 @@
             "name": "/customers",
             "lambdaFunction": "getCustomerData",
             "privacy": {
-                "protected": true,
-                "auth": [
-                    "/GET"
-                ],
-                "unauth": [
-                    "/GET"
-                ]
+                "open": true
             }
         }
     ],
@@ -22,8 +16,8 @@
         }
     ],
     "privacy": {
-        "auth": 1,
-        "unauth": 1,
+        "auth": 0,
+        "unauth": 0,
         "authRoleName": "rocking-deep-lambda-master-20190710161553-authRole",
         "unAuthRoleName": "rocking-deep-lambda-master-20190710161553-unauthRole"
     },
@@ -37,5 +31,5 @@
             ]
         }
     ],
-    "uuid": "d2b064ca"
+    "uuid": "f0a3132b"
 }
