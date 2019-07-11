@@ -1,0 +1,7 @@
+{
+    "tableName": "customers",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S",
+    "sortKeyName": "datetime",
+    "sortKeyType": "S"
+}
